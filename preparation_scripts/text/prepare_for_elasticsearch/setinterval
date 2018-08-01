@@ -1,0 +1,8 @@
+export es=localhost:9200
+export site=en.wikipedia.org
+export index=enwikipedia
+curl -XPUT "$es/$index/_settings?pretty" -d '{
+    "index" : {
+        "refresh_interval" : -1
+    }
+}'

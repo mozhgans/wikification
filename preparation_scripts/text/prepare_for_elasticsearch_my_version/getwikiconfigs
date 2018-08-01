@@ -1,0 +1,16 @@
+export es=localhost:9200
+export site=en.wikipedia.org
+export index=enwikipedia
+
+
+curl -s 'https://'$site'/w/api.php?action=cirrus-settings-dump&format=json&formatversion=2' |
+  jq '{
+    analysis: .content.page.index.analysis,
+    number_of_shards: 1,
+    number_of_replicas: 0
+  }' >  wiki_settings
+
+curl -s 'https://'$site'/w/api.php?action=cirrus-mapping-dump&format=json&formatversion=2' |
+  jq .content |
+  sed 's/"index_analyzer"/"analyzer"/' |
+  sed 's/"position_offset_gap"/"position_increment_gap"/' >  wiki_mappings

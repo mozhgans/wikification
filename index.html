@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="keywords" content="Wikipedia, Concept Representation, Semantic Relatedness, Semantic Similarity, WSD, Word-sense Disambiguation, Wikification, Wikifier, Entity Linker, Open Source, Web Service, API">
+    <meta name="description" content="Wikipedia Concept Representation">
+    <meta name="author" content="Armin Sajadi">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Wikisim: Open Source Wikipedia Concept Representation, Semantic Relatedness and Entity Linker (Wikifier)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap-3.3.4-dist/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap-3.3.4-dist/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+    <link rel="stylesheet" type="text/css" href="css/styledef.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WikiSim</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#doc">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="out/results.html">Results Page</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container" id="bigdiv" disabled="true">
+        <div class="container">
+            <h1>WikiSim Project</h1>
+            <p>
+                <Strong>
+                    <font size="4pt">Wikisim</font>
+                </Strong> provides a reliable open source
+                <em>
+                    <strong>Concept Represenation</strong>
+                </em>,
+                <em>
+                    <strong>Semantic Relatedness</strong>
+                </em> and
+                <em>
+                    <strong>Wikifier (Entity Linker)</strong>
+                </em>
+                using
+                <strong>Wikipedia</strong>. </p>
+            <p> The approach is based on Wikipedia "
+                <strong>Graph Embedding</strong>". You can play with the demo, or directly request to the
+                <a href="#api">web service</a>. </p>
+        </div>
+        <div id="webaddress">
+            <div class="container">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2>Web Addresses</h2>
+                            <a name="curraddress"></a>
+                        </div>
+
+                        <div class="panel-body">
+                            <h2>API Adress (current):
+                                <a href="http://cgm6.research.cs.dal.ca/wikisim">http://cgm6.research.cs.dal.ca/wikisim</a>
+                            </h2>
+                            <h2>Sourcce code:
+                                <a href="https://github.com/asajadi/wikisim">https://github.com/asajadi/wikisim</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="eldiv">
+            <div id="elsidediv">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Wikification</label>
+                        </div>
+
+                        <div class="panel-body">
+                            <form role="form" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Mention Detector:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="mentiondetection" value="0">CoreNLP</label>
+                                        <br>
+                                        <label>
+                                            <input type="radio" name="mentiondetection" value="1" checked="checked">Learned (High Precision)</label>
+                                        <br>
+                                        <label>
+                                            <input type="radio" name="mentiondetection" value="1" checked="checked">Learned (High Recall)</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="wikitext">Input Text:</label>
+                                    <textarea accept-charset="UTF-8" id="wikitext" class="form-control">Lee Jun-fan known professionally as Bruce Lee, was founder of the martial art Jeet Kune Do</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="elbutton" class="btn btn-primary">Wikify</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="progress collapse" id="elprogdiv">
+                                        <progress></progress>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="alert alert-success " role="alert" id='alerteldiv'>
+                                <label for="alerteldiv">
+                                    <font color="blue">Wikified Text:</font>
+                                </label>
+                                <label id="el"></label>
+                            </div>
+
+
+                            <form role="form" enctype="multipart/form-data">
+                                <label> Batch </label>
+                                <p>
+                                    <strong>Note: Batch mode uses larger (hence slighty more accurate) models</strong>
+                                </p>
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="elfile" id="elfileinput">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="batchelbutton" class="btn btn-primary">Wikify</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="alert alert-success " role="alert" id='batcheldiv'>
+                                        <label for="batcheldiv"></label>
+                                        <p>Check the
+                                                <a href='out/results.html'>results page</a> for the results</p>
+                                            
+                                    </div>
+                                    <div class="progress collapse" id="batchelprogdiv">
+                                        <progress></progress>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="fakechartviz">
+            </div>
+
+        </div>
+        <div class="container" id="simdiv">
+
+            <div id="simsidediv">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Semantic Relatedness</label>
+                        </div>
+
+                        <div class="panel-body">
+                            <form role="form" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Graph Direction:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="simdirection" value="1" checked="checked">Out (Recommended)</label>
+                                        <label>
+                                            <input type="radio" name="simdirection" value="0">In (Slow)</label>
+                                        <label>
+                                            <input type="radio" name="simdirection" value="2">All (Slow)</label>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="cutdiv">
+                                    <label>k for top-k embeddings (enter 'all' to get eveything):</label>
+                                    <input type="text" class="form-control" id="simcutoff" value="20">
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="simviz" checked=true>Show tagcloud
+                                        </label>
+                                    </div>
+                                </div>
+                                <p>
+                                    <strong>
+                                        <font color=red>Note:</font>
+                                    </strong> This should be the exact concept title (including underscores), as it appears in the
+                                    (trailing part of) the url of the page , such as
+                                    <em>Machine_learning</em>
+                                </p>
+                                <div class="form-group">
+                                    <label for="simc1">Concept 1:</label>
+                                    <input type="text" class="form-control" id="simc1" value="Delusion">
+                                </div>
+                                <div class="form-group" id="simc2div">
+                                    <label for="simc2">Concept 2:</label>
+                                    <input type="text" class="form-control" id="simc2" value="Schizophrenia">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="simbutton" class="btn btn-primary">Calculate</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="progress collapse" id="simprogdiv">
+                                        <progress></progress>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="alert alert-success " role="alert" id='alertsimdiv'>
+                                <label for="alertsimdiv">
+                                    <font color="blue">Similarity:</font>
+                                </label>
+                                <label id="sim"></label>
+                            </div>
+
+                            <form role="form" enctype="multipart/form-data">
+                                <label> Batch </label>
+
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="simfile" id="simfileinput">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="batchsimbutton" class="btn btn-primary">Calculate</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="alert alert-success " role="alert" id='batchsimdiv'>
+                                        <label for="batchsimdiv"></label>
+                                        <p>Check the
+                                            <a href='out/results.html'>results page</a> for the results</p>
+                                    </div>
+                                    <div class="progress collapse" id="batchsimprogdiv">
+                                        <progress></progress>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="simchartviz">
+            </div>
+
+        </div>
+
+        <div class="container" id="embdiv">
+            <div id="embsidediv">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <label>Concept Embedding</label>
+                        </div>
+
+                        <div class="panel-body">
+                            <form role="form" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Graph Direction:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="embdirection" value="1" checked="checked">Out (Recommended)</label>
+                                        <label>
+                                            <input type="radio" name="embdirection" value="0">In (Slow)</label>
+                                        <label>
+                                            <input type="radio" name="embdirection" value="2">All (Slow)</label>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="cutdiv">
+                                    <label>k for top-k embeddings (enter 'all' to get eveything):</label>
+                                    <input type="text" class="form-control" id="embcutoff" value="20">
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="embviz" checked=true> Show tagcloud</label>
+                                    </div>
+                                </div>
+                                <p>
+                                    <strong>
+                                        <font color=red>Note:</font>
+                                    </strong> This should be the exact concept title (including underscores), as it appears in the
+                                    (trailing part of) the url of the page , such as
+                                    <em>Machine_learning</em>
+                                </p>
+                                <div class="form-group">
+                                    <label for="embc1">Concept:</label>
+                                    <input type="text" class="form-control" id="embc1" value="Delusion">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="embbutton" class="btn btn-primary">Calculate</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="progress collapse" id="embprogdiv">
+                                        <progress></progress>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="alert alert-success " role="alert" id='alertembdiv'>
+                                <label for="alertembdiv">
+                                    <font color="blue">Embedding:</font>
+                                </label>
+                                <label id="emb"></label>
+                            </div>
+
+                            <form role="form" enctype="multipart/form-data">
+                                <label> Batch </label>
+
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="embfile" id="embfileinput">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" id="batchembbutton" class="btn btn-primary">Calculate</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="alert alert-success " role="alert" id='batchembdiv'>
+                                        <label for="batchembdiv"></label>
+                                        <p>Check the
+                                            <a href='out/results.html'>results page</a> for the results</p>
+                                    </div>
+                                    <div class="progress collapse" id="batchembprogdiv">
+                                        <progress></progress>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="embchartviz">
+            </div>
+        </div>
+        <div class="container" id="docdiv">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="doc"></a>
+                        <h2> What is Wikisim? </h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <h3>Wikisim provides the following serrvices:</h3>
+                        </p>
+                        <ul>
+                            <li>Vector-Space Representation of Wikipedia Concepts</li>
+                            <li>Semantic Relatedness between Wikipedia Concepts</li>
+                            <li>Wikification: Entity Linking to Wikipedia</li>
+                        </ul>
+                        <p>
+                            <h3>Publications: </h3>
+                        </p>
+                        <p>
+                            Detailed decription of the architecture and algorithms can be found in the following publications:
+                        </p>
+                        <ul>
+                            <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj: "Vector Space Representation of Concepts Using
+                                Wikipedia Graph Structure".
+                                <a href=https://dblp.uni-trier.de/db/conf/nldb/nldb2017.html>NLDB 2017</a>: 393-405 (
+                                <a href=https://dblp.uni-trier.de/rec/bibtex/conf/nldb/SajadiMK17>bib</a>,
+                                <a href=https://link.springer.com/chapter/10.1007%2F978-3-319-59569-6_48>pdf</a>)
+                            </li>
+                            <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj, Jeannette C. M. Janssen, "Domain-Specific Semantic
+                                Relatedness from Wikipedia Structure: A Case Study in Biomedical Text"
+                                <a href="http://dblp.uni-trier.de/db/conf/cicling/cicling2015-1.html#SajadiMKJ15">CICLing (1) 2015</a>: 347-360 (
+                                <a href="http://dblp.uni-trier.de/rec/bibtex/conf/cicling/SajadiMKJ15">bib</a>,
+                                <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-18111-0_26">pdf</a>)</li>
+                            <li>Armin Sajadi,"
+                                <em>Graph-Based Domain-Speciﬁc Semantic Relatedness from Wikipedia</em>", Canadian AI 2014, LNAI
+                                8436, pp. 381–386, 2014 (
+                                <a href="../resrc/caai14.bib">bib</a>,
+                                <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-06483-3_42#">pdf</a>)</li>
+                        </ul>
+                        <p>
+                            <h3>Awards</h3>
+                        </p>
+                        <ul>
+                            <li>Verifiability, Reproducibility, and Working Description Award, Computational Linguistics and
+                                In- telligent Text Processing, 16th International Conference, CICLing 2015, Cairo, Egypt,
+                                April 14-20, 2015
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="api"></a>
+                        <h2> API </h2>
+                    </div>
+                    <div class="panel-body">
+                        <h3> Webservice Address </h3>
+                        Check the
+                        <a href="#curraddress">current address</a>:
+                        <h3> Single mode </h3>
+                        <p>The webservice provides three basic functions (or tasks): Wikification, Simiarity and Embedding calculation.
+                            All requests can be processed in
+                            <em>single</em> or
+                            <em>batch mode</em>.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Wikification:</strong>
+                                <br> parameters:
+                                <br>
+                                <code>modelparams</code>: should be 0 for using
+                                <em>CoreNLP</em>, 1 for our
+                                <em>high-precision trained model</em> and 2 for our
+                                <em>high-recall trained method</em>
+                                <br>
+                                <code>wikitext</code>: the text to be wikified
+                                <br> Example (using curl):
+                                <br>
+                                <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-wikify.py' -F 'modelparams=0'  -F 'wikitext=Lee Jun-fan known professionally as Bruce Lee, was founder of the martial art Jeet Kune Do'
+                    </code>
+                                <li>
+                                    <strong>Similarity Calculation</strong>:
+                                    <br> parameters:
+                                    <br>
+                                    <code>task</code>: should be 'sim' for this task
+                                    <br>
+                                    <code>direction</code>: 0 for using incomming links, 1 for outgoing links and 2 for both. We recommend using
+                                    only outgoing links as it provides decent results and is significantly faster
+                                    <br>
+                                    <code>c1 (and c2)</code>: the concept to be processed
+                                    <br> Example (using curl):
+                                    <br>
+                                    <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-pairsim.py' -F 'task=sim' -F 'dir=1' -F 'c1=Bruce_Lee' -F 'c2=Arnold_Schwarzenegger'</code>
+                                </li>
+                                <li>
+                                    <strong>Concept Representation (Embedding): </strong>
+                                    <br> parameters:
+                                    <br>
+                                    <code>task</code>: should be 'emb' for this task
+                                    <br>
+                                    <code>direction</code>: 0 for using
+                                    <em>incomming links</em>, 1 for
+                                    <em>outgoing links</em> and 2 for
+                                    <em>both</em>. We recommend using only outgoing links as it provides decent results and is
+                                    significantly faster
+                                    <br>
+                                    <code>cutoff</code>: the dimensionality of the embedding. This parameter is only used for returning the
+                                    embeddings, the similarity calculation always uses all the dimensions.
+                                    <br>
+                                    <code>c1</code>: the concept to be processed
+                                    <br> Example (using curl):
+                                    <br>
+                                    <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-pairsim.py' -F 'task=emb' -F 'dir=1' -F 'cutoff=10' -F 'c1=Bruce_Lee'</code>
+                                </li>
+                        </ul>
+                        <h3> Batch mode </h3>
+                        <p> We strongly recommend using batch mode, either by post request and sending the file, or simply uploading
+                            the file in the batch mode input.</p>
+                        <p>For Wikification, documents should be seperated by new lines. For similarity calculation, the file
+                            should be tab seperated, each line containing a pair of Wikipedia Concepts. For embedding calculation,
+                            each line of the file contains a single concept. </p>
+                        <p>The parameters are the same, however, the target cgi-files are different:</p>
+                        <ul>
+                            <li>
+                                Wikification: use
+                                <code>cgi-batchwikify.py</code>
+                                <br> Example (using curl):
+                                <br>
+                                <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-batchwikify.py' -F 'modelparams=0'  -F 'file=@filename'</code>
+                            </li>
+                            <li>
+                                Similarity: use
+                                <code>cgi-batchsim.py</code>
+                                <br> Example (using curl):
+                                <br>
+                                <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-batchsim.py' -F 'task=sim' -F 'dir=1' -F 'file=@filename'</code>
+                            </li>
+                            <li>
+                                Embedding: use
+                                <code>cgi-batchsim.py</code>
+                                <br> Example (using curl):
+                                <br>
+                                <code>curl --request POST 'http://cgm6.research.cs.dal.ca/wikisim/cgi-bin/cgi-batchsim.py' -F task='emb' -F 'dir=1' -F 'cutoff=10' -F 'file=@filename'</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="download"></a>
+                        <h2> Downloading the embeddings </h2>
+                    </div>
+                    <div class="panel-body">
+                        <strong> Current Version: enwiki20160305 </strong>
+                        <p> You can download the embeddings, however, using our API has the following advantages:
+                        </p>
+                        <ol>
+                            <li>
+                                The embeddings are provided for wikipedia concepts page_ids and you need another table to find the concepts titles, moreover,
+                                redirect concepts are not included, so let's say you want to find the embeddings for "US",
+                                you have to follow the following steps:
+                                <ol>
+                                    <li>
+                                        From the page table, find "US", and you see that its redirect field is 1, meaning that it's a redirect page; take its id,
+                                        that is: 31643
+                                    </li>
+                                    <li>
+                                        Go to redirect table and find out that it's redirected to 3434750 (the id for United_States)
+                                    </li>
+                                    <li>
+                                        Go to embedding table and find the embedding for 3434750
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                The nonzero dimentions are not included in the embedding, so there is a need for efficient alignment
+                            </li>
+                        </ol>
+                        <p> But if you still want to use your own data-sturctures, download the following tables:</p>
+                        <ol>
+                            <li>
+                                <a href="../data/enwiki20160305/edited/enwiki-20160305-page.main.tsv.gz">Page Table</a>
+                                <p>Layout:</p>
+                                <code>page_id , page_namespace (0:page,14: Category) , page_title , page_is_redirect </code>
+                            </li>
+                            <li>
+                                <a href="../data/enwiki20160305/edited/enwiki-20160305-redirect.main.tsv.gz"> Redirect Table</a>
+                                <p>Layout:</p>
+                                <code> rd_from , rd_to </code>
+                            </li>
+                            <p>As stated in the paper, out-links are shorter and leads to faster process. If you want to get
+                                the full embedding for a word, find both its in-embedding and out-embedding and add them
+                                up
+                            </p>
+                            <li>
+                                <a href="../data/enwiki20160305/edited/enwiki-20160305-pagelinksorderedin.main.tsv.gz">Embeddings (in-links)</a>
+                                <p>Layout:</p>
+                                <code> page_id , embedding in json format {id1:value1, ..., idn,valuen} </code>
+                            </li>
+                            <li>
+                                <a href="../data/enwiki20160305/edited/enwiki-20160305-pagelinksorderedout.main.tsv.gz">Embeddings (Out-Links) </a>
+                                <p>Layout:</p>
+                                <code> page_id , embedding in json format {id1:value1, ..., idn,valuen} </code>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="hosting"></a>
+                        <h2>Hosting Wikisim</h2>
+                    </div>
+                    <div class="panel-body">
+                        You can run Wikisim locally and freely modify the source code.
+                        <h3>Step 1. </h3> Prepare the environement
+                        <ul>
+                            <li>Install
+                                <a href="https://conda.io/docs/user-guide/install/index.html">conda</a>
+                            </li>
+                            <li>
+                                <p>run</p>
+                                <code>conda env create -f environment.yml</code>
+                            </li>
+                        </ul>
+                        <h3> Step 2. Clone the
+                            <a href="https://github.com/asajadi/wikisim">Source Code</a>
+                        </h3>
+                        It is mostrly written in Python. The repository contains several files, but the following two notbooks are the main entries
+                        to the source code and contain all the core features of the system
+                        <ul>
+                            <li>
+                                <a href="https://github.com/asajadi/wikisim/blob/master/wikisim/wikisim.ipynb"> wikisim.ipynb notebook </a>: Contains the
+                                <em>embedding</em> and
+                                <em>relatedness</em> methods.
+                            </li>
+                            <li>
+                                <a href="https://github.com/asajadi/wikisim/blob/master/wikify/wikify.ipynb"> wikify.ipynb notebook </a>: Contains the
+                                <em>word-sense disambiguation</em> and
+                                <em>entity linking</em> methods.
+                            </li>
+                        </ul>
+                        Having prepared the conda environement, you have two options for Step 3:
+                        <h3> Step3.</h3> Preparing the MariaDB and Apache Solr servers
+                        <h3>Option 1. Downloading the prepared servers</h3>
+                        <p>This option saves you a lot of time if it works! It requires the following two steps:</p>
+                        <p>You can download our MariaDB server and Solr Cores. If you are using Linux, there is a chance that
+                            you can download the whole servers and they work out-of-the box.</p>
+                        <ul>
+                            <li>
+                                <a href=../data/enwiki20160305/servers/mariadb-10.1.13-linux-x86_64.tar>Download MariaDB (+graph tables)</a>
+                            </li>
+                            <li>
+                                <a href=../data/enwiki20160305/servers/solr-6.0.0-context.tar>Download Solr (+text cores)</a>
+                            </li>
+                        </ul>
+                        <h3>Option 2. Starting from the scratch and importing a different version of Wikipedia</h3>
+                        It requires downloading and preprocessing the Wikipedia dumps and extracting the graph-structure and textual information
+                        from them. The whole process can be done in two major steps:
+                        <ul>
+                            <li>Setting up a MariaDB server and preparing the graph-strcuture.
+                                <p>The full instruction is given in
+                                    <a href="https://github.com/asajadi/wikisim/blob/master/preparation_scripts/db/prepare_graph_db.ipynb">this jupyter notebook </a>
+                                </p>
+                            </li>
+                            <li>Processing the text and setting up the Apache Solr
+                                <p>The full instruction is given in
+                                    <a href="https://github.com/asajadi/wikisim/blob/master/preparation_scripts/text/prepare_annonated_indexed_wiki.ipynb">this jupyter notebook </a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="about"></a>
+                        <h2> About </h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Wikisim was developed in
+                            <a href="https://projects.cs.dal.ca/malnis/">
+                                Machine Learning and Networked Information Spaces (MALNIS) Lab</a> at Dalhousie University.
+                            This research was funded by the Natural Sciences and Engineering Research Council of Canada (NSERC),
+                            the Boeing Company, and Mitacs</p>
+                        <p>
+                            <h3>
+                                Contributors:</h3>
+                        </p>
+                        <ul>
+                            <li>
+                                <a title="Armin Sajadi" href="http://projects.cs.dal.ca/visualtextanalytics/people/sajadi/">Armin Sajadi</a> - Faculty of Computer Science
+                            </li>
+                            <li>
+                                Ryan Amaral- Faculty of Computer Science
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a name="contact"></a>
+                        <h2> Contact </h2>
+                    </div>
+                    <div class="panel-body">
+                        <h3>
+                            <a title="Armin Sajadi" href="http://web.cs.dal.ca/~sajadi/">Armin Sajadi</a>
+                        </h3>
+                        We appreciate and value any question, special feature request or bug report, just let us know at:
+                        <br>
+                        <a href="mailto:sajadi@cs.dal.ca?Subject=Wikisim">sajadi@cs.dal.ca</a>
+                        <br>
+                        <a href="mailto:asajadi@gmail.com?Subject=Wikisim">asajadi@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+
+    <script src="js/d3.js"></script>
+    <script src="js/d3.layout.cloud.js"></script>
+    <script src="js/simpledraw.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //Wikification
+            $("#elbutton").click(function () {
+
+                if ($("#wikitext").val()) {
+                    postwikitext();
+                }
+
+            });
+
+            $("#batchelbutton").click(function () {
+                $('#alerteldiv').removeClass('alert-danger').addClass('alert-success');
+                if ($("#elfileinput").val()) {
+                    eluploadfile();
+                }
+
+            });
+
+            function postwikitext() {
+                $('#alerteldiv').removeClass('alert-danger').addClass('alert-success');
+                $("#el").text('');
+
+
+                $('#elbutton').attr('disabled', true);
+                $('#elprogdiv').show();
+                $.post("cgi-bin/cgi-wikify.py",
+                    {
+                        modelparams: $('input[name=mentiondetection]:checked').val(),
+                        wikitext: $("#wikitext").val(),
+                    },
+                    function (data, status) {
+                        $('#elbutton').attr('disabled', false);
+                        $('#elprogdiv').hide();
+                        if ('err' in data) {
+                            $('#alerteldiv').removeClass('alert-success').addClass('alert-danger');
+                            $('#el').text(data['err']);
+                            return
+                        }
+                        $("#el").html(data["outtext"]);
+                    }
+                ).fail(function (xhr, textStatus, errorThrown) {
+                    $('#alerteldiv').removeClass('alert-success').addClass('alert-danger');
+                    $('#el').html(xhr.responseText);
+                });
+            }
+
+            function eluploadfile() {
+                $('#batcheldiv').removeClass('alert-danger').addClass('alert-success');
+                $("label[for='batcheldiv']").text("")
+                $('#batchelbutton').attr('disabled', true);
+                $('#batcheldiv').hide();
+                $('#batchelprogdiv').show();
+
+                var formData = new FormData();
+                formData.append("file", $("#elfileinput")[0].files[0]);
+                formData.append("modelparams", $('input[name=mentiondetection]:checked').val());
+                var jobid = 0
+                $.ajax({
+                    url: 'cgi-bin/cgi-batchwikify.py',  //Server script to process data
+                    type: 'POST',
+                    xhr: function () {  // Custom XMLHttpRequest
+                        var myXhr = $.ajaxSettings.xhr();
+                        if (myXhr.upload) { // Check if upload property exists
+                            myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                        }
+                        return myXhr;
+                    },
+                    //Ajax events
+                    // Form data
+                    data: formData,
+                    //Options to tell jQuery not to process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data, textstatus) {
+                        $("label[for='batcheldiv']").text("Job submitted, jobid: " + data['jobid'])
+                        $('#batchelbutton').attr('disabled', false);
+                        $('#batcheldiv').show();
+                        $('#batchelprogdiv').hide();
+
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#alerteldiv').removeClass('alert-success').addClass('alert-danger');
+                        $("label[for='batcheldiv']").html(xhr.responseText)
+                        $('#batchelbutton').attr('disabled', false);
+                        $('#batcheldiv').show();
+                        $('#batchelprogdiv').hide();
+                    }
+                });
+            }
+
+            //Semantic Relatedness
+            $("#simbutton").click(function () {
+                if ($("#simc1").val() && $("#simc2").val()) {
+                    postpairs();
+                }
+
+            });
+
+            $("#batchsimbutton").click(function () {
+                if ($("#simfileinput").val()) {
+                    simuploadfile();
+                }
+
+            });
+
+            function postpairs() {
+                $('#alertsimdiv').removeClass('alert-danger').addClass('alert-success');
+                $("#sim").text('');
+                $("#simchart2").remove();
+                $("#simchart1").remove();
+                $('#simbutton').attr('disabled', true);
+                $('#simprogdiv').show();
+                $.post("cgi-bin/cgi-pairsim.py",
+                    {
+                        task: 'sim',
+                        dir: $('input[name=simdirection]:checked').val(),
+                        cutoff: $("#simcutoff").val(),
+                        viz: $('#simviz').is(':checked'),
+                        c1: $("#simc1").val(),
+                        c2: $("#simc2").val()
+                    },
+                    function (data, status) {
+                        $('#simbutton').attr('disabled', false);
+                        $('#simprogdiv').hide();
+                        if ('err' in data) {
+                            $('#alertsimdiv').removeClass('alert-success').addClass('alert-danger');
+                            $('#sim').text(data['err']);
+                            return
+
+                        }
+                        $("#sim").text(data["rel"]);
+                        if ('em1' in data) {
+                            $('#simchartviz').append("<div id='simchart1'></div>");
+                            simpledraw(createWords(data['em1']), '#simchart1');
+                        }
+                        if ('em2' in data) {
+                            $('#simchartviz').append("<div id='simchart2'></div>");
+                            simpledraw(createWords(data['em2']), '#simchart2');
+                        }
+                    }
+                ).fail(function (xhr, textStatus, errorThrown) {
+                    $('#alertsimdiv').removeClass('alert-success').addClass('alert-danger');
+                    $('#sim').html(xhr.responseText);
+                });
+            }
+
+            function simuploadfile() {
+
+                $('#batchsimdiv').removeClass('alert-danger').addClass('alert-success');
+                $("label[for='batchsimdiv']").text("")
+                $('#batchsimbutton').attr('disabled', true);
+                $('#batchsimdiv').hide();
+                $('#batchsimprogdiv').show();
+
+                var formData = new FormData();
+                formData.append("file", $("#simfileinput")[0].files[0]);
+                formData.append("dir", $('input[name=simdirection]:checked').val());
+                formData.append("task", 'sim');
+                formData.append("cutoff", $("#simcutoff").val());
+
+                $.ajax({
+                    url: 'cgi-bin/cgi-batchsim.py',  //Server script to process data
+                    type: 'POST',
+                    xhr: function () {  // Custom XMLHttpRequest
+                        var myXhr = $.ajaxSettings.xhr();
+                        if (myXhr.upload) { // Check if upload property exists
+                            myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                        }
+                        return myXhr;
+                    },
+                    //Ajax events
+                    // Form data
+                    data: formData,
+                    //Options to tell jQuery not to process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data, textstatus) {
+                        $("label[for='batchsimdiv']").text("Job submitted, jobid: " + data['jobid'] + "")
+                        $('#batchsimbutton').attr('disabled', false);
+                        $('#batchsimprogdiv').hide();
+                        $('#batchsimdiv').show();
+
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#batchsimdiv').removeClass('alert-success').addClass('alert-danger');
+                        $("label[for='batchsimdiv']").html(xhr.responseText)
+                        $('#batchsimbutton').attr('disabled', false);
+                        $('#batchsimprogdiv').hide();
+                        $('#batchsimdiv').show();
+                    }
+                });
+            }
+            // Embedding
+            $("#embbutton").click(function () {
+
+                if ($("#embc1").val()) {
+                    postsingle();
+                }
+
+            });
+
+            $("#batchembbutton").click(function () {
+                if ($("#embfileinput").val()) {
+                    embuploadfile();
+                }
+
+            });
+
+            function postsingle() {
+                $('#alertembdiv').removeClass('alert-danger').addClass('alert-success');
+                $("#emb").text('');
+                $("#embchart").remove();
+                $('#embbutton').attr('disabled', true);
+                $('#embprogdiv').show();
+
+                $.post("cgi-bin/cgi-pairsim.py",
+                    {
+                        task: 'emb',
+                        dir: $('input[name=embdirection]:checked').val(),
+                        cutoff: $("#embcutoff").val(),
+                        viz: $('#embviz').is(':checked'),
+                        c1: $("#embc1").val(),
+                    },
+                    function (data, status) {
+                        $('#embbutton').attr('disabled', false);
+                        $('#embprogdiv').hide();
+                        if ('err' in data) {
+                            $('#alertembdiv').removeClass('alert-success').addClass('alert-danger');
+                            $('#emb').text(data['err']);
+                            return
+
+                        }
+                        words = createWords(data['em']);
+                        wordsText = sortWords(words);
+                        $('#emb').text(wordsText);
+                        if ($('#embviz').is(':checked')) {
+                            $('#embchartviz').append("<div id='embchart'></div>");
+                            simpledraw(words, '#embchart');
+                        }
+                        return;
+
+                    }
+                ).fail(function (xhr, textStatus, errorThrown) {
+                    $('#alertembdiv').removeClass('alert-success').addClass('alert-danger');
+                    $('#emb').html(xhr.responseText);
+                });
+            }
+            function embuploadfile() {
+
+                $('#batchembdiv').removeClass('alert-danger').addClass('alert-success');
+                $("label[for='batchembdiv']").text("")
+                $('#batchembbutton').attr('disabled', true);
+                $('#batchembdiv').hide();
+                $('#batchembprogdiv').show();
+
+
+                var formData = new FormData();
+                formData.append("file", $("#embfileinput")[0].files[0]);
+                formData.append("dir", $('input[name=embdirection]:checked').val());
+                formData.append("task", 'emb');
+                formData.append("cutoff", $("#embcutoff").val());
+
+                $.ajax({
+                    url: 'cgi-bin/cgi-batchsim.py',  //Server script to process data
+                    type: 'POST',
+                    xhr: function () {  // Custom XMLHttpRequest
+                        var myXhr = $.ajaxSettings.xhr();
+                        if (myXhr.upload) { // Check if upload property exists
+                            myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                        }
+                        return myXhr;
+                    },
+                    //Ajax events
+                    // Form data
+                    data: formData,
+                    //Options to tell jQuery not to process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data, textstatus) {
+                        $("label[for='batchembdiv']").text("Job submitted, jobid: " + data['jobid'] + "")
+                        $('#batchembbutton').attr('disabled', false);
+                        $('#batchembprogdiv').hide();
+                        $('#batchembdiv').show();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#batchembdiv').removeClass('alert-success').addClass('alert-danger');
+                        $("label[for='batchembdiv']").html(xhr.responseText)
+                        $('#batchembbutton').attr('disabled', false);
+                        $('#batchembprogdiv').hide();
+                        $('#batchembdiv').show();
+                    }
+                });
+            }
+
+            function createWords(cp) {
+
+                var titles = [];
+                var scores = [];
+
+                for (var key in cp) {
+                    if (cp.hasOwnProperty(key)) {
+                        titles.push(cp[key][0])
+                        scores.push(cp[key][1])
+                    }
+                }
+                var sum = scores.reduce(function (a, b) { return a + b; });
+                var min = Math.min.apply(null, scores)
+                var max = Math.max.apply(null, scores)
+
+                scores = scores.map(function (a) { return (a / sum) * 90 + 10 });
+                var words = [];
+                for (var i = 0; i < titles.length; i++) {
+                    words.push({ "text": titles[i], "size": scores[i] })
+                }
+                return words;
+            }
+
+            function sortWords(words) {
+                words.sort(function compare(a, b) { return b['size'] - a['size'] })
+                wordsText = [];
+                for (var i = 0; i < words.length; i++) {
+                    wordsText.push(words[i]['text']);
+                }
+                return wordsText.join(', ');
+            }
+            function progressHandlingFunction(e) {
+                //                    if(e.lengthComputable){
+                //                        $('progress').attr({value:e.loaded,max:e.total});
+                //                    }
+            }
+
+
+        });
+    </script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap-3.3.4-dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

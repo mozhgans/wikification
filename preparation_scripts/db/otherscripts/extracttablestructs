@@ -1,0 +1,26 @@
+#!/bin/bash
+
+head -n  51 enwiki-20151002-page.sql > original_importpage.sql
+
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-page.main.tsv' INTO TABLE page CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importpage.sql
+tail -n  12 enwiki-20151002-page.sql >> original_importpage.sql
+
+head -n  40 enwiki-20151002-pagelinks.sql > original_importpagelinks.sql
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-pagelinks.main.tsv' INTO TABLE pagelinks CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importpagelinks.sql
+tail -n  12 enwiki-20151002-pagelinks.sql >> original_importpagelinks.sql
+
+head -n  40 enwiki-20151002-redirect.sql > original_importredirect.sql
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-redirect.main.tsv' INTO TABLE redirect CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importredirect.sql
+tail -n  12 enwiki-20151002-redirect.sql >> original_importredirect.sql
+
+head -n 41 enwiki-20151002-category.sql > original_importcategory.sql
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-category.main.tsv' INTO TABLE category CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importcategory.sql
+tail -n 12 enwiki-20151002-category.sql >> original_importcategory.sql
+
+head -n 44 enwiki-20151002-categorylinks.sql > original_importcategorylinks.sql
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-categorylinks.main.tsv' INTO TABLE categorylinks CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importcategorylinks.sql
+tail -n 12 enwiki-20151002-categorylinks.sql >> original_importcategorylinks.sql
+
+head -n 39 enwiki-20151002-externallinks.sql > original_importexternallinks.sql
+echo -e "\nLoad DATA INFILE '/users/grad/sajadi/backup/projectsarchived/Datasets/wikipedia/20151002/enwiki-20151002-externallinks.main.tsv' INTO TABLE externallinks CHARACTER SET binary FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\'';\n" >> original_importexternallinks.sql
+tail -n 12 enwiki-20151002-externallinks.sql >> original_importexternallinks.sql

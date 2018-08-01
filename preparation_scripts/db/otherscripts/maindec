@@ -1,0 +1,31 @@
+ #!/bin/bash
+echo 'started'
+date
+
+gunzip -c enwiki-$1-page.main.tsv.gz 		> 	enwiki-$1-page.main.tsv
+
+gunzip -c enwiki-$1-pagelinks.main.tsv.gz 	> 	enwiki-$1-pagelinks.main.tsv
+gunzip -c enwiki-$1-pagelinks.dead.tsv.gz	> 	enwiki-$1-pagelinks.dead.tsv
+
+gunzip -c enwiki-$1-redirect.main.tsv.gz 	> 	enwiki-$1-redirect.main.tsv
+gunzip -c enwiki-$1-redirect.dead.tsv.gz 	> 	enwiki-$1-redirect.dead.tsv
+gunzip -c enwiki-$1-redirrep.tsv.gz		> 	enwiki-$1-redirrep.tsv
+
+if [ $1 -eq 20120403 ]
+then
+echo 'done'
+date
+exit 0
+fi
+
+gunzip -c enwiki-$1-category.main.tsv.gz 	> 	 enwiki-$1-category.main.tsv
+
+gunzip -c enwiki-$1-categorylinks.main.tsv.gz 	>	 enwiki-$1-categorylinks.main.tsv
+gunzip -c enwiki-$1-categorylinks.dead.tsv.gz 	>	 enwiki-$1-categorylinks.dead.tsv
+
+#gunzip -c enwiki-$1-externallinks.main.tsv.gz 	>	 enwiki-$1-externallinks.main.tsv
+
+echo 'done'
+date
+
+

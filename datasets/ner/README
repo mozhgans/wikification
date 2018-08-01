@@ -1,0 +1,14 @@
+Wikification Datasets:
+-wikimensions.5000.json
+-wiki-mentions.30000.json: Does not overlap wikimentions.5000.json
+-kore.json
+-msnbc.txt.json 
+-aquaint.txt.json
+
+
+Other:
+trainrepository.5000.3000.tsv: Train dataset for WSD
+mentiotrainrepository.5000.3000: Train dataset for mention detection
+
+
+

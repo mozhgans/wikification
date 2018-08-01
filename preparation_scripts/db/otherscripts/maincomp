@@ -1,0 +1,29 @@
+ #!/bin/bash
+echo 'started'
+date
+
+gzip -c enwiki-$1-page.main.tsv 		>	enwiki-$1-page.main.tsv.gz
+
+gzip -c enwiki-$1-pagelinks.main.tsv 		> 	enwiki-$1-pagelinks.main.tsv.gz
+gzip -c enwiki-$1-pagelinks.dead.tsv 		> 	enwiki-$1-pagelinks.dead.tsv.gz
+
+gzip -c enwiki-$1-redirect.main.tsv 		> 	enwiki-$1-redirect.main.tsv.gz
+gzip -c enwiki-$1-redirect.dead.tsv 		> 	enwiki-$1-redirect.dead.tsv.gz
+gzip -c enwiki-$1-redirrep.tsv			>	enwiki-$1-redirrep.tsv.gz
+
+if [ $1 -eq 20120403 ]
+then
+echo 'done'
+date
+exit 0
+fi
+
+gzip -c enwiki-$1-category.main.tsv 		> 	enwiki-$1-category.main.tsv.gz
+
+gzip -c enwiki-$1-categorylinks.main.tsv	> 	enwiki-$1-categorylinks.main.tsv.gz
+gzip -c enwiki-$1-categorylinks.dead.tsv	> 	enwiki-$1-categorylinks.dead.tsv.gz
+
+#gzip -c enwiki-$1-externallinks.main.tsv	> 	enwiki-$1-externallinks.main.tsv.gz
+
+echo 'done'
+date

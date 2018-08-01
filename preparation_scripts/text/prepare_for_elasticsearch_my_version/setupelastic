@@ -1,0 +1,9 @@
+export es=localhost:9200
+export site=small.en.wikipedia.org
+export index=smallenwikipedia
+
+curl -XDELETE $es/$index?pretty
+
+cat settings | curl -XPUT $es/$index?pretty -d @-
+
+cat mappings | curl -XPUT $es/$index/_mapping/page?pretty -d @-

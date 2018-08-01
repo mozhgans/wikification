@@ -1,0 +1,22 @@
+ #!/bin/bash
+echo 'started'
+date
+
+gunzip -c enwiki-$1-page.sql.gz 		> enwiki-$1-page.sql 
+gunzip -c enwiki-$1-pagelinks.sql.gz 		> enwiki-$1-pagelinks.sql
+gunzip -c enwiki-$1-redirect.sql.gz    		> enwiki-$1-redirect.sql
+
+if [ $1 -eq 20120403 ]
+then
+echo 'done'
+date
+exit 0
+fi
+
+gunzip -c enwiki-$1-category.sql.gz	   	> enwiki-$1-category.sql
+gunzip -c enwiki-$1-categorylinks.sql.gz   	> enwiki-$1-categorylinks.sql
+gunzip -c enwiki-$1-externallinks.sql.gz     	> enwiki-$1-externallinks.sql
+#bzip2  -c -d enwiki-$1-pages-articles.xml.bz2 	>  enwiki-$1-pages-articles.xml
+
+echo 'done'
+date

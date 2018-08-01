@@ -1,0 +1,556 @@
+{
+  "page": {
+    "properties": {
+      "wikibase_item": {
+        "ignore_above": 5000,
+        "analyzer": "keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "title": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "suggest",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match",
+          "all_near_match"
+        ],
+        "fields": {
+          "suggest": {
+            "position_increment_gap": 10,
+            "analyzer": "suggest",
+            "type": "string"
+          },
+          "prefix_asciifolding": {
+            "position_increment_gap": 10,
+            "search_analyzer": "near_match_asciifolding",
+            "analyzer": "prefix_asciifolding",
+            "index_options": "docs",
+            "type": "string"
+          },
+          "prefix": {
+            "position_increment_gap": 10,
+            "search_analyzer": "near_match",
+            "analyzer": "prefix",
+            "index_options": "docs",
+            "type": "string"
+          },
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "type": "string"
+          },
+          "near_match_asciifolding": {
+            "position_increment_gap": 10,
+            "analyzer": "near_match_asciifolding",
+            "index_options": "docs",
+            "type": "string"
+          },
+          "near_match": {
+            "position_increment_gap": 10,
+            "analyzer": "near_match",
+            "index_options": "docs",
+            "type": "string"
+          },
+          "keyword": {
+            "position_increment_gap": 10,
+            "analyzer": "keyword",
+            "index_options": "docs",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "type": "string"
+      },
+      "timestamp": {
+        "format": "dateOptionalTime",
+        "type": "date"
+      },
+      "text_bytes": {
+        "index": "no",
+        "type": "long"
+      },
+      "text": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all"
+        ],
+        "fields": {
+          "word_count": {
+            "analyzer": "plain",
+            "store": true,
+            "type": "token_count"
+          },
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "index_options": "offsets",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "index_options": "offsets",
+        "type": "string"
+      },
+      "template": {
+        "ignore_above": 5000,
+        "analyzer": "lowercase_keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "suggest": {
+        "analyzer": "suggest",
+        "type": "string"
+      },
+      "source_text": {
+        "position_increment_gap": 10,
+        "fields": {
+          "trigram": {
+            "position_increment_gap": 10,
+            "analyzer": "trigram",
+            "index_options": "docs",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          },
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "redirect": {
+        "properties": {
+          "title": {
+            "position_increment_gap": 10,
+            "copy_to": [
+              "suggest",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match",
+              "all_near_match"
+            ],
+            "fields": {
+              "suggest": {
+                "position_increment_gap": 10,
+                "analyzer": "suggest",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "prefix_asciifolding": {
+                "position_increment_gap": 10,
+                "search_analyzer": "near_match_asciifolding",
+                "analyzer": "prefix_asciifolding",
+                "index_options": "offsets",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "prefix": {
+                "position_increment_gap": 10,
+                "search_analyzer": "near_match",
+                "analyzer": "prefix",
+                "index_options": "offsets",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "plain": {
+                "position_increment_gap": 10,
+                "search_analyzer": "plain_search",
+                "analyzer": "plain",
+                "index_options": "offsets",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "near_match_asciifolding": {
+                "position_increment_gap": 10,
+                "analyzer": "near_match_asciifolding",
+                "index_options": "offsets",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "near_match": {
+                "position_increment_gap": 10,
+                "analyzer": "near_match",
+                "index_options": "offsets",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              },
+              "keyword": {
+                "position_increment_gap": 10,
+                "analyzer": "keyword",
+                "index_options": "docs",
+                "norms": {
+                  "enabled": false
+                },
+                "type": "string"
+              }
+            },
+            "search_analyzer": "text_search",
+            "analyzer": "text",
+            "index_options": "offsets",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          },
+          "namespace": {
+            "type": "long"
+          }
+        },
+        "dynamic": "false"
+      },
+      "heading": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all",
+          "all",
+          "all",
+          "all",
+          "all"
+        ],
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "index_options": "offsets",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "index_options": "offsets",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "file_text": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all"
+        ],
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "index_options": "offsets",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "index_options": "offsets",
+        "type": "string"
+      },
+      "external_link": {
+        "ignore_above": 5000,
+        "analyzer": "keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "coordinates": {
+        "properties": {
+          "type": {
+            "index": "not_analyzed",
+            "type": "string"
+          },
+          "region": {
+            "index": "not_analyzed",
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "name": {
+            "index": "no",
+            "type": "string"
+          },
+          "globe": {
+            "index": "not_analyzed",
+            "type": "string"
+          },
+          "dim": {
+            "type": "float"
+          },
+          "country": {
+            "index": "not_analyzed",
+            "type": "string"
+          },
+          "coord": {
+            "lat_lon": true,
+            "type": "geo_point"
+          }
+        },
+        "type": "nested"
+      },
+      "category": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all",
+          "all"
+        ],
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "index_options": "offsets",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          },
+          "lowercase_keyword": {
+            "ignore_above": 5000,
+            "position_increment_gap": 10,
+            "analyzer": "lowercase_keyword",
+            "index_options": "docs",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "index_options": "offsets",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "auxiliary_text": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all"
+        ],
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "index_options": "offsets",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "index_options": "offsets",
+        "type": "string"
+      },
+      "all_near_match": {
+        "position_increment_gap": 10,
+        "fields": {
+          "asciifolding": {
+            "position_increment_gap": 10,
+            "analyzer": "near_match_asciifolding",
+            "index_options": "freqs",
+            "norms": {
+              "enabled": false
+            },
+            "type": "string"
+          }
+        },
+        "analyzer": "near_match",
+        "index_options": "freqs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "all": {
+        "position_increment_gap": 10,
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "type": "string"
+      },
+      "incoming_links": {
+        "type": "long"
+      },
+      "language": {
+        "ignore_above": 5000,
+        "analyzer": "keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "local_sites_with_dupe": {
+        "ignore_above": 5000,
+        "analyzer": "lowercase_keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "namespace": {
+        "type": "long"
+      },
+      "namespace_text": {
+        "ignore_above": 5000,
+        "analyzer": "keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "opening_text": {
+        "position_increment_gap": 10,
+        "copy_to": [
+          "all",
+          "all",
+          "all"
+        ],
+        "fields": {
+          "plain": {
+            "position_increment_gap": 10,
+            "search_analyzer": "plain_search",
+            "analyzer": "plain",
+            "type": "string"
+          }
+        },
+        "search_analyzer": "text_search",
+        "analyzer": "text",
+        "type": "string"
+      },
+      "outgoing_link": {
+        "ignore_above": 5000,
+        "analyzer": "keyword",
+        "index_options": "docs",
+        "norms": {
+          "enabled": false
+        },
+        "type": "string"
+      },
+      "popularity_score": {
+        "type": "double"
+      }
+    },
+    "_all": {
+      "enabled": false
+    },
+    "dynamic": "false"
+  }
+}

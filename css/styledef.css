@@ -1,0 +1,64 @@
+#eldiv {
+	clear:both;
+	margin-bottom:10px;
+}
+#elsidediv {
+   width:40%;
+   float:left; 
+}
+#elchartviz {
+   width:60%;
+   float:left; 
+
+}
+
+
+#simdiv {
+ 	clear:both;
+ 	margin-bottom:10px;
+}
+#simsidediv {
+    width:40%;
+    float:left; 
+}
+#simchartviz {
+    width:60%;
+    float:left; 
+
+}
+#simchart1 {
+	width: 100%;
+	height:500px; 
+	float:left; 
+	border-style:solid;
+}
+#simchart2 {
+	width: 100%;
+	height:500px; 
+	float:left; 
+	border-style:solid;
+}
+
+#embdiv {
+	clear:both;
+	margin-bottom:10px;
+}
+#embsidediv {
+   width:40%;
+   float:left; 
+}
+#embchartviz {
+   width:60%;
+   float:left; 
+
+}
+#embchart {
+    width:100%;
+	height:500px; 
+	float:left; 
+	border-style:solid;
+}
+
+ #bottomdiv {
+ 	clear:both;
+}

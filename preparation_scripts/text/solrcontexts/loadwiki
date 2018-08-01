@@ -1,0 +1,23 @@
+export sol=http://localhost:8983/solr
+export index=enwiki20160305_context
+
+echo "Imporintg Started..."
+date
+
+cd chunks
+
+curl -s -X post -H 'Content-Type: application/json' $sol/$index/update?commit=true -d '
+{
+"delete": { "query":"*:*" }
+}
+'
+
+for file in *; do
+  echo -n "${file}:  "
+
+  took=$(curl -s -X post -H 'Content-Type: application/json; charset=utf-8' $sol/$index/update?commit=true -d @$file)
+  printf '%s\n' $took
+done
+
+echo "done"
+date

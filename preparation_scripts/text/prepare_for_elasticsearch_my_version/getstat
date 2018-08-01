@@ -1,0 +1,3 @@
+export es=localhost:9200
+export index=smallenwikipedia
+date; curl $es/$index/_refresh?pretty; curl $es/$index/_count?pretty

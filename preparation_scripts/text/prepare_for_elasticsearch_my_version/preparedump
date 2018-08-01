@@ -1,0 +1,6 @@
+export dump=/home/sajadi/backup/tmp/smallwiki.json
+export index=smallenwikipedia
+
+mkdir chunks
+cd chunks
+cat $dump | split -a 10 -l 500 - $index

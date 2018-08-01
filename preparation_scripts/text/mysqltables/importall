@@ -1,0 +1,12 @@
+ #!/bin/bash
+
+echo "Imporintg Started..."
+date
+
+
+cat importanchors.sql 	| perl -s -p -e 's/\$1/$home/g;s/\$2/$ver/g;' -- -home=$1 -ver=$2 	| mysql -u $3 --password=$4 --local-infile=1 enwiki$2  
+echo "anchors done"
+
+
+echo 'Done...'
+date

@@ -1,0 +1,6 @@
+export dump=/local/data/user/sajadi/wikipedia/20160404_cirr/enwiki-20160404-cirrussearch-content.json.gz
+export index=enwikipedia
+
+mkdir chunks
+cd chunks
+zcat $dump | split -a 10 -l 500 - $index

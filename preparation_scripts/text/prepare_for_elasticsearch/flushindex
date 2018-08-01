@@ -1,0 +1,4 @@
+export es=localhost:9200
+export site=en.wikipedia.org
+export index=enwikipedia
+curl $es/$index/_flush

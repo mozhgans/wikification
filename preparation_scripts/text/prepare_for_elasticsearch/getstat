@@ -1,0 +1,4 @@
+export es=localhost:9200
+export site=en.wikipedia.org
+export index=enwikipedia
+date; curl $es/$index/_refresh?pretty; curl $es/$index/_count?pretty

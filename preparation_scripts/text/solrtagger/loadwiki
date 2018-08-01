@@ -1,0 +1,11 @@
+export sol=http://localhost:8983/solr
+export index=enwikianchors20160305
+
+curl -s -X post -H 'Content-Type: application/json' $sol/$index/update?commit=true -d '
+{
+"delete": { "query":"*:*" }
+}
+'
+
+curl -X POST --data-binary @/local/data/user/sajadi/wikipedia/20160305/texts/enwiki-20160305-anchors.tsv -H 'Content-type:application/csv' \
+ 'http://localhost:8983/solr/enwikianchors20160305/update?commit=true&optimize=true&separator=%09&encapsulator=%00&fieldnames=name'

@@ -1,0 +1,6 @@
+export sol=http://localhost:8983/solr
+export index=enwikianchors20160305
+
+curl -X POST \
+  'http://localhost:8983/solr/enwikianchors20160305/tag?overlaps=NO_SUB&tagsLimit=5000&fl=name&wt=json&indent=on' \
+    -H 'Content-Type:text/plain' -d "Hello Armin ! joon # #@"
