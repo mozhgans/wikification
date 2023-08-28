@@ -26,14 +26,7 @@
                 <h2> What is Wikification? This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral </h2>
             </div>
             <div class="panel-body">
-                <p>
-                    <h3>Wikisim provides the following serrvices:</h3>
-                </p>
-                <ul>
-                    <li>Vector-Space Representation of Wikipedia Concepts</li>
-                    <li>Semantic Relatedness between Wikipedia Concepts</li>
-                    <li>Wikification: Entity Linking to Wikipedia</li>
-                </ul>
+
                 <p>
                     <h3>Publications: </h3>
                 </p>
