@@ -23,7 +23,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <a name="doc"></a>
-                <h2> What is Wikisim? </h2>
+                <h2> What is Wikisim?This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral </h2>
             </div>
             <div class="panel-body">
                 <p>
