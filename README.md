@@ -18,6 +18,26 @@
         </div>
     </div>
 </div>
+<div id="webaddress">
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Web Addresses</h2>
+                    <a name="curraddress"></a>
+                </div>
+                <div class="panel-body">
+                    <h2>API Adress (current):
+                        <a href="http://cgm6.research.cs.dal.ca/~sajadi/wikisim/">http://cgm6.research.cs.dal.ca/~sajadi/wikisim/</a>
+                    </h2>
+                    <h2>Sourcce code:
+                        <a href="https://github.com/asajadi/wikisim">https://github.com/asajadi/wikisim</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container" id="docdiv">
     <div class="panel-group">
         <div class="panel panel-default">
@@ -27,12 +47,46 @@
             </div>
             <div class="panel-body">
                 <p>
-                    <h3>This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral</h3>
+                    <h3>Wikisim provides the following serrvices:</h3>
                 </p>
-
-
-
-
+                <ul>
+                    <li>Vector-Space Representation of Wikipedia Concepts</li>
+                    <li>Semantic Relatedness between Wikipedia Concepts</li>
+                    <li>Wikification: Entity Linking to Wikipedia</li>
+                </ul>
+                <p>
+                    <h3>Publications: </h3>
+                </p>
+                <p>
+                    Detailed decription of the architecture and algorithms can be found in the following publications:
+                </p>
+                <ul>
+                    <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj: "Vector Space Representation of Concepts Using
+                        Wikipedia Graph Structure".
+                        <a href="https://dblp.uni-trier.de/db/conf/nldb/nldb2017.html">NLDB 2017</a>: 393-405 (
+                        <a href="https://dblp.uni-trier.de/rec/bibtex/conf/nldb/SajadiMK17">bib</a>,
+                        <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-59569-6_48">pdf</a>)
+                    </li>
+                    <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj, Jeannette C. M. Janssen, "Domain-Specific Semantic
+                        Relatedness from Wikipedia Structure: A Case Study in Biomedical Text"
+                        <a href="http://dblp.uni-trier.de/db/conf/cicling/cicling2015-1.html#SajadiMKJ15">CICLing (1) 2015</a>: 347-360 (
+                        <a href="http://dblp.uni-trier.de/rec/bibtex/conf/cicling/SajadiMKJ15">bib</a>,
+                        <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-18111-0_26">pdf</a>)</li>
+                    <li>Armin Sajadi,"
+                        <em>Graph-Based Domain-Speciﬁc Semantic Relatedness from Wikipedia</em>", Canadian AI 2014, LNAI
+                        8436, pp. 381–386, 2014 (
+                        <a href="../resrc/caai14.bib">bib</a>,
+                        <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-06483-3_42#">pdf</a>)</li>
+                </ul>
+                <p>
+                    <h3>Awards</h3>
+                </p>
+                <ul>
+                    <li>Verifiability, Reproducibility, and Working Description Award, Computational Linguistics and
+                        In- telligent Text Processing, 16th International Conference, CICLing 2015, Cairo, Egypt,
+                        April 14-20, 2015
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -169,29 +223,66 @@
                 <p> But if you still want to use your own data-sturctures, download the following tables:</p>
                 <ol>
                     <li>
-                        <a href="http://cgm6.research.cs.dal.ca/~sajadi/downloads/wikisim/enwiki-20160305-page.main.tsv.gz">Page Table</a>
-                        <p>Layout:</p>
-                        <code>page_id , page_namespace (0:page,14: Category) , page_title , page_is_redirect </code>
+                        <p>
+                            <a href="../data/enwiki20160305/edited/enwiki-20160305-page.main.tsv.gz">Page Table</a>
+                        </p>
+                        Layout:
+                        <p>
+                            <code>page_id , page_namespace (0:page,14: Category) , page_title , page_is_redirect </code>
+                        </p>
                     </li>
                     <li>
-                        <a href="http://cgm6.research.cs.dal.ca/~sajadi/downloads/wikisim/enwiki-20160305-redirect.main.tsv.gz"> Redirect Table</a>
-                        <p>Layout:</p>
-                        <code> rd_from , rd_to </code>
+                        <p>
+                            <a href="../data/enwiki20160305/edited/enwiki-20160305-redirect.main.tsv.gz"> Redirect Table</a>
+                        </p>
+                        Layout:
+                        <p>
+                            <code> rd_from , rd_to </code>
+                        </p>
+                        <p>As stated in the paper, out-links are shorter and leads to faster process. If you want to
+                            get the full embedding for a word, find both its in-embedding and out-embedding and add
+                            them up.
+                        </p>
                     </li>
-                    <p>As stated in the paper, out-links are shorter and leads to faster process. If you want to get
-                        the full embedding for a word, find both its in-embedding and out-embedding and add them
-                        up
-                    </p>
                     <li>
-                        <a href="http://cgm6.research.cs.dal.ca/~sajadi/downloads/wikisim/enwiki-20160305-pagelinksorderedin.main.tsv.gz">Embeddings (in-links)</a>
-                        <p>Layout:</p>
-                        <code> page_id , embedding in json format {id1:value1, ..., idn,valuen} </code>
+                        <p>
+                            <a href="../data/enwiki20160305/edited/enwiki-20160305-pagelinksorderedin.main.tsv.gz">Embeddings (in-links)</a>
+                        </p>
+                        <ul>
+                            <li>Layout:
+                                <p>
+                                    <code> page_id , embedding as a pickled tuple(ids, values) </code>
+                                </p>
+                            </li>
+                            <li>
+                                <b>Note</b>
+                                The second field is a binary string and needs to be properly unescaped. 
+                            The following function, defined in the
+                                <code>utils module</code> in the
+                                <a href="https://github.com/asajadi/wikisim/blob/master/wikisim/wikisim.ipynb#Utils">Wikisim notebook</a>, can read the embedding file.
+                                <p>
+                                    <code>read_embedding_file(filename, records_number)</code>
+                                </p>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="http://cgm6.research.cs.dal.ca/~sajadi/downloads/wikisim/enwiki-20160305-pagelinksorderedout.main.tsv.gz">Embeddings (Out-Links) </a>
-                        <p>Layout:</p>
-                        <code> page_id , embedding in json format {id1:value1, ..., idn,valuen} </code>
-                    </li>
+                        <p>
+                            <a href="../data/enwiki20160305/edited/enwiki-20160305-pagelinksorderedout.main.tsv.gz">Embeddings (Out-Links) </a>
+                        </p>
+                        <ul>
+                            <li>Layout:
+                                <p>
+                                    <code> page_id , embedding </code>
+                                </p>
+                            </li>
+                            <li>
+                                <b>Note</b>
+                            </li>
+                            <p>Similar to the above explained sutuation with pagelinksorderedin, you need to use
+                                <code>read_embedding_file(filename, records_number)</code> to read the file. </p>
+                        </ul>
+                    </li>                    
                 </ol>
             </div>
         </div>
@@ -237,10 +328,10 @@
                     you can download the whole servers and they work out-of-the box.</p>
                 <ul>
                     <li>
-                        <a href=../wikipedia/mariadb-10.1.13-linux-x86_64-prembeddings.tar>Download MariaDB (+graph tables)</a>
+                        <a href="../wikipedia/mariadb-10.1.13-linux-x86_64-prembeddings.tar">Download MariaDB (+graph tables)</a>
                     </li>
                     <li>
-                        <a href=../wikipedia/solr-6.0.0-context.tar>Download Solr (+text cores)</a>
+                        <a href="../wikipedia/solr-6.0.0-context.tar">Download Solr (+text cores)</a>
                     </li>
                 </ul>
                 <h3>Option 2. Starting from the scratch and importing a different version of Wikipedia</h3>
