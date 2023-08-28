@@ -1,3 +1,6 @@
+"""Context-based disambiguation and also Learning-To-Rank combination
+    of several features.
+"""
 
 from __future__ import division
 
@@ -12,14 +15,7 @@ from sklearn.externals import joblib
 # My methods
 #from senseembed_train_test.ipynb
 
-__author__ = "Armin Sajadi"
-__copyright__ = "Copyright 215, The Wikisim Project"
-__credits__ = ["Armin Sajadi"]
-__license__ = "GPL"
-__version__ = "1.0.1"
-__maintainer__ = "Armin Sajadi"
-__email__ = "sajadi@cs.dal.ca"
-__status__ = "Development"
+
 
 
 LTR_NROWS_S = 10000
