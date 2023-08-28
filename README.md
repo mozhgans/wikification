@@ -18,3 +18,7 @@
         </div>
     </div>
 </div>
+
+
+
+What is Wikification? This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral
