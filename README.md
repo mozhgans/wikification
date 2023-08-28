@@ -10,7 +10,7 @@
                     <h2>API Adress (current):
                         <a href="http://waverley.cs.dal.ca/~saeidi/wikification/">http://cgm6.research.cs.dal.ca/~sajadi/wikisim/</a>
                     </h2>
-                    <h2>Sourcce code:
+                    <h2>Sourcce code: Wikisim project
                         <a Wikisim project</a>
                     </h2>
                 </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="panel-body">
                 <p>
-                    <h3>Wikisim provides the following serrvices:</h3>
+                    <h3>This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral</h3>
                 </p>
                 <ul>
                     <li>Vector-Space Representation of Wikipedia Concepts</li>
