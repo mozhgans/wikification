@@ -29,44 +29,10 @@
                 <p>
                     <h3>This Wikification project is based on another context based Wikification method which is Wikisim project by Armin Sajadi and Ryan Amaral</h3>
                 </p>
-                <ul>
-                    <li>Vector-Space Representation of Wikipedia Concepts</li>
-                    <li>Semantic Relatedness between Wikipedia Concepts</li>
-                    <li>Wikification: Entity Linking to Wikipedia</li>
-                </ul>
-                <p>
-                    <h3>Publications: </h3>
-                </p>
-                <p>
-                    Detailed decription of the architecture and algorithms can be found in the following publications:
-                </p>
-                <ul>
-                    <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj: "Vector Space Representation of Concepts Using
-                        Wikipedia Graph Structure".
-                        <a href=https://dblp.uni-trier.de/db/conf/nldb/nldb2017.html>NLDB 2017</a>: 393-405 (
-                        <a href=https://dblp.uni-trier.de/rec/bibtex/conf/nldb/SajadiMK17>bib</a>,
-                        <a href=https://link.springer.com/chapter/10.1007%2F978-3-319-59569-6_48>pdf</a>)
-                    </li>
-                    <li>Armin Sajadi, Evangelos E. Milios, Vlado Keselj, Jeannette C. M. Janssen, "Domain-Specific Semantic
-                        Relatedness from Wikipedia Structure: A Case Study in Biomedical Text"
-                        <a href="http://dblp.uni-trier.de/db/conf/cicling/cicling2015-1.html#SajadiMKJ15">CICLing (1) 2015</a>: 347-360 (
-                        <a href="http://dblp.uni-trier.de/rec/bibtex/conf/cicling/SajadiMKJ15">bib</a>,
-                        <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-18111-0_26">pdf</a>)</li>
-                    <li>Armin Sajadi,"
-                        <em>Graph-Based Domain-Speciﬁc Semantic Relatedness from Wikipedia</em>", Canadian AI 2014, LNAI
-                        8436, pp. 381–386, 2014 (
-                        <a href="../resrc/caai14.bib">bib</a>,
-                        <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-06483-3_42#">pdf</a>)</li>
-                </ul>
-                <p>
-                    <h3>Awards</h3>
-                </p>
-                <ul>
-                    <li>Verifiability, Reproducibility, and Working Description Award, Computational Linguistics and
-                        In- telligent Text Processing, 16th International Conference, CICLing 2015, Cairo, Egypt,
-                        April 14-20, 2015
-                    </li>
-                </ul>
+
+
+
+
             </div>
         </div>
     </div>
