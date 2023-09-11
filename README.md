@@ -29,3 +29,5 @@ Our work aims to implement a method that performs entity disambiguation and link
 We demonstrate that using overlapping windows instead of disjoint windows in the baseline key entity-based approach of Wikisim leads to a new Wikification system with increased accuracy while increasing the computational cost only slightly. 
 
 We named this first overlapping Windows algorithm 1, OWCW (Overlapping-Windows Concept Wikifier), and further improved it by ranking senses based on similarities to the context in algorithm 2, as CACW (Context-Aware Concept Wikifier). 
+
+Contact me: mozhan.saeidi@gmail.com
