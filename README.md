@@ -1,4 +1,4 @@
-<div id="webaddress">
+ <div id="webaddress">
     <div class="container">
         <div class="panel-group">
             <div class="panel panel-default">
@@ -10,7 +10,7 @@
                     <h2>API Adress:
                         <a href="http://waverley.cs.dal.ca/~saeidi/wikification/">(http://waverley.cs.dal.ca/~saeidi/wikification/)</a>
                     </h2>
-                    <h2>Sourcce code:Wikisim project
+                    <h2>The code for CACW word sense disambiguation method which is presented in chapter 3 of Mozhgan's thesis. The source baseline code from: Wikisim project
                         <a Wikisim project</a>
                     </h2>
                 </div>
