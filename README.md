@@ -21,7 +21,7 @@
 
 
 
-What is Wikification? This Wikification project is based on another context-based Wikification method which is the Wikisim project by Armin Sajadi and Ryan Amaral.
+What is Wikification? This Wikification project is based on another context-based Wikification method: the Wikisim project by Armin Sajadi and Ryan Amaral.
 
 
 Our work aims to implement a method that performs entity disambiguation and links to Wikipedia’s most relevant pages. 
