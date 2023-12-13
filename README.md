@@ -10,7 +10,7 @@
 <!--                     <h2>API Adress:
                         <a href="http://waverley.cs.dal.ca/~saeidi/wikification/">(http://waverley.cs.dal.ca/~saeidi/wikification/)</a>
                     </h2> -->
-                    <h2>The code for CACW word sense disambiguation method which is presented in chapter 3 of Mozhgan's thesis. The source baseline code from: the Wikisim project
+                    <h2>The code for CACW word sense disambiguation method which is presented in chapter 3 of Mozhgan's thesis. The results of this work are presented in the paper "Context-enhanced concept disambiguation in Wikification". The source baseline code from: the Wikisim project
                         <a Wikisim project</a>
                     </h2>
                 </div>
